@@ -46,23 +46,24 @@
 .swiper1 {
   position: relative;
   left: -20px;
-  transform: perspective(1000px) rotateX(2deg) rotate(1deg);
+  transform: perspective(1000px) rotateX(2deg) rotate(4deg);
 }
 .swiper-rotate {
   position: relative;
   margin-top: 200px;
 }
 .swiper-wrapper {
-  transform-style: preserve-3d;
   perspective: 1000px;
   height: 700px;
 }
 .rota {
   position: relative;
   z-index: 2;
-  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+  background-color: transparent !important;
 }
-
+.imgage {
+  border-radius: 60px;
+}
 body {
   margin: 0;
 }
@@ -70,15 +71,16 @@ body {
 .nav {
   display: flex;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
   flex-direction: column;
 }
 
 .element {
   display: inline-block;
   position: relative;
-  cursor: pointer;
   overflow: hidden;
+  cursor: pointer;
+
   font-size: 100px;
 }
 .element > span:nth-child(even) {
@@ -105,4 +107,8 @@ body {
 .element:hover::before {
   transform: scale(1);
   transform-origin: left;
+}
+
+.swiper-wrapper {
+  will-change: transform !important;
 }
