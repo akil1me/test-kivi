@@ -46,7 +46,7 @@
 .swiper1 {
   position: relative;
   left: -20px;
-  transform: perspective(1000px) rotateX(2deg) rotate(4deg);
+  transform: perspective(1000px) rotateX(2deg) rotate(3deg);
 }
 .swiper-rotate {
   position: relative;

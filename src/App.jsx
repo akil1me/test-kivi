@@ -7,12 +7,14 @@ import {
   EffectCreative,
   Parallax,
   Virtual,
+  Zoom,
 } from "swiper";
 import "swiper/swiper-bundle.css";
 import { Parallax as Par } from "react-parallax";
 
 import "swiper/css";
 import "swiper/css/free-mode";
+
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
@@ -21,6 +23,7 @@ import "swiper/css/effect-coverflow";
 import "swiper/css/effect-creative";
 import "./app.css";
 import "swiper/css/parallax";
+import "swiper/css/zoom";
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import { SwiperButtons } from "./swiper-buttons";
 import { useEffect } from "react";
@@ -102,23 +105,25 @@ const App = () => {
             swiperRef.current = swiper;
           }}
           modules={[
+            Zoom,
             FreeMode,
             EffectCoverflow,
             EffectCreative,
             Parallax,
             Virtual,
           ]}
-          loop
+          zoom
           freeMode
+          loopedSlides={8}
           parallax={true}
           coverflowEffect={{
             rotate: 5,
           }}
           style={{ width: "100%" }}
-          spaceBetween={50}
+          spaceBetween={20}
           slidesPerView={"auto"}
-          lazy={"false"}
-          speed={360}
+          speed={1000}
+          autoplay={false}
         >
           {slides.map((slideContent, index) => (
             <SwiperSlide
@@ -129,41 +134,20 @@ const App = () => {
                 height: 600,
                 borderRadius: 60,
                 overflow: "hidden",
+                background: "red",
               }}
             >
-              <div
+              <img
+                data-swiper-parallax="10%"
                 style={{
-                  width: 600,
-                  height: 600,
+                  width: "100%",
+                  height: "100%",
                   borderRadius: 60,
-                  position: "relative",
+                  // objectFit: "cover",
                 }}
-              >
-                <div
-                  style={{
-                    position: "absolute",
-                    right: 0,
-                    left: 0,
-                    width: "100%",
-                    height: "100%",
-                    borderRadius: 60,
-                    transformOrigin: "center",
-                  }}
-                >
-                  <img
-                    data-swiper-parallax="15%"
-                    data-swiper-parallax-scale="1.1"
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      borderRadius: 60,
-                      objectFit: "cover",
-                    }}
-                    src={`https://picsum.photos/id/${index + 11}/600/600`}
-                    alt=""
-                  />
-                </div>
-              </div>
+                src={`https://picsum.photos/id/${index + 20}/600/600`}
+                alt=""
+              />
             </SwiperSlide>
           ))}
         </Swiper>
