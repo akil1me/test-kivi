@@ -115,7 +115,7 @@ const App = () => {
             rotate: 5,
           }}
           style={{ width: "100%" }}
-          spaceBetween={100}
+          spaceBetween={50}
           slidesPerView={"auto"}
           lazy={"false"}
           speed={360}
@@ -128,6 +128,7 @@ const App = () => {
                 width: 600,
                 height: 600,
                 borderRadius: 60,
+                overflow: "hidden",
               }}
             >
               <div
@@ -150,8 +151,8 @@ const App = () => {
                   }}
                 >
                   <img
-                    data-swiper-parallax="10%"
-                    data-swiper-parallax-scale="0.95"
+                    data-swiper-parallax="15%"
+                    data-swiper-parallax-scale="1.1"
                     style={{
                       width: "100%",
                       height: "100%",
